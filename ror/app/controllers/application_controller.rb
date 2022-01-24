@@ -2,6 +2,10 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_rescue
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid_rescue
 
+    def index
+        
+    end
+
     private
 
     def record_not_found_rescue e
