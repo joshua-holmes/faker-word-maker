@@ -8,7 +8,8 @@ RUN apk add --no-cache build-base postgresql-dev postgresql-client bash tzdata
 
 # Prepare working directory.
 WORKDIR /ror
-COPY ./ror /ror
+COPY ./ror .
+RUN rm -fr ./client
 RUN gem install bundler:2.3.4
 RUN bundle install
 RUN bundle add tzinfo-data
