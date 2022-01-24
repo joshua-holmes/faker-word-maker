@@ -10,14 +10,10 @@ class LexiconsController < ApplicationController
 
     def create
         name, words = params[:name], params[:words]
-        if !(name && words)
-            return render json: { 
-                message: "Either 'name' or 'words' param was empty in body" 
-            }, status: :unprocessable_entity
-        elsif Lexicon.find_by(name: name)
-            return render json: { 
-                message: "The name '#{name}' is already in use and is invalid." 
-            }, status: :unprocessable_entity
+        if !words
+            return render_words_invalid "'words' param was empty in body"
+        elsif words.class != Array
+            return render_words_invalid "'words' param must be an array of words"
         end
         lex = Lexicon.create!(name: name)
         words.each do |word|
@@ -25,5 +21,13 @@ class LexiconsController < ApplicationController
             LexiconWord.create!(lexicon_id: lex.id, word_id: saved_word.id)
         end
         render json: lex, status: :created
-    end 
+    end
+
+    private
+
+    def render_words_invalid(message)
+        render json: { 
+            error: message
+        }, status: :unprocessable_entity
+    end
 end

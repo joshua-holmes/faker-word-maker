@@ -1,8 +1,8 @@
 class Lexicon < ApplicationRecord
     has_many :lexicon_words
     has_many :words, through: :lexicon_words
-
     has_many :favorite_words
+    validates :name, presence: true, uniqueness: true
 
     def generate_stats(segment)
         def count_combos_matching(segment)

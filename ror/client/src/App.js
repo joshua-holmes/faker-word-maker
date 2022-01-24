@@ -21,7 +21,7 @@ function App() {
     });
 
     useEffect(() => {
-        fetch("https://word-generator-app.herokuapp.com/lexicons")
+        fetch("/lexicons")
             .then((r) => r.json())
             .then((data) => {
                 const allLexicons = data.sort((a, b) => a.name - b.name);

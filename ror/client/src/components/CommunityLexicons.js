@@ -14,7 +14,7 @@ function CommunityLexicons({ lexicons, selectionsState }) {
             const controller = new AbortController();
             const signal = controller.signal;
             fetch(
-                `https://word-generator-app.herokuapp.com/lexicons/${selections.lexicon.id}`,
+                `/lexicons/${selections.lexicon.id}`,
                 {
                     method: "GET",
                     signal: signal,
@@ -34,7 +34,11 @@ function CommunityLexicons({ lexicons, selectionsState }) {
     const handleFaveAdd = (word) => {
         const wordObj = faveWords.find((w) => w.word === word);
         if (!wordObj) {
-            const body = { id: -1, word: word };
+            const body = { 
+                id: -1,
+                word: word,
+                lexicon_id: selections.lexicon.id 
+            };
             const extendedWords = [...faveWords, body];
             setFaveWords(() => extendedWords);
             const config = {
@@ -46,7 +50,7 @@ function CommunityLexicons({ lexicons, selectionsState }) {
                 body: JSON.stringify(body),
             };
             fetch(
-                `https://word-generator-app.herokuapp.com/lexicons/${selections.lexicon.id}`,
+                `/favorite_words`,
                 config
             )
                 .then((r) => r.json())
@@ -78,11 +82,11 @@ function CommunityLexicons({ lexicons, selectionsState }) {
             },
         };
         fetch(
-            `https://word-generator-app.herokuapp.com/lexicons/${selections.lexicon.id}/${wordObj.id}`,
+            `/favorite_words/${wordObj.id}`,
             config
         )
             .then((r) => r.json())
-            .then((data) => console.log("DELETED FAVE", data))
+            .then(() => console.log("DELETED FAVE"))
             .catch((error) => {
                 console.error("Deleting favorite word failed... ==>", error);
                 setFaveWords(() => [...filteredWords, wordObj]);

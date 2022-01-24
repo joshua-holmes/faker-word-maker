@@ -143,7 +143,7 @@ function CreateLexiconForm({ lexiconsState }) {
                 },
                 body: JSON.stringify(body),
             };
-            fetch("https://word-generator-app.herokuapp.com/lexicons", config)
+            fetch("/lexicons", config)
             .then((r) => r.json())
             .then((data) => {
                 console.log("SUBMITTED FORM DATA", data)

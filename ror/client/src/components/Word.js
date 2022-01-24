@@ -47,7 +47,7 @@ function Word({
         const len = selections.length;
         const lengthPath = len === "auto" ? "" : `/${len}`;
         fetch(
-            `https://word-generator-app.herokuapp.com/random_word/${selections.lexicon.name}${lengthPath}`,
+            `/random_word/${selections.lexicon.name}${lengthPath}`,
             {
                 method: "GET",
                 signal: signal,
