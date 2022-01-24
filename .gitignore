@@ -48,10 +48,6 @@ public
 .idea
 .env*
 !.env.example
-# .env.local
-# .env.development.local
-# .env.test.local
-# .env.production.local
 
 .byebug_history
 npm-debug.log*
