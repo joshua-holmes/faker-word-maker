@@ -6,6 +6,5 @@ Rails.application.routes.draw do
   get "/random_word/:name/:length", to: "dev_api#make_word_with_length"
 
   # So React will handle routing not related to the above requests
-  root "application#index"
-  match "*path", to: "application#index", via: :all
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? } 
 end
