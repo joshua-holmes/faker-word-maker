@@ -61,7 +61,7 @@ function NavBar() {
                 <Toolbar disableGutters>
                     <Link to="/">
                     <LeftLogo
-                        src="./fwm_logo_white.png"
+                        src="./white-on-transparent-swirly.png"
                         component="img"
                         sx={{ display: { xs: "none", md: "flex" } }}
                     />
@@ -84,7 +84,7 @@ function NavBar() {
                         </IconButton>
                     </Box>
                     <CenterLogo
-                        src="./fwm_logo_white.png"
+                        src="./white-on-transparent-swirly.png"
                         component="img"
                         sx={{display: { xs: "flex", md: "none" }}}
                     />
