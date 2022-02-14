@@ -12,21 +12,19 @@ function Home() {
                 </Grid>
                 <Grid item xs={12}>
                     <Typography variant="p">
-                        Welcome to the Faker Word Maker App! This app
-                        algorithmically generates words that look like English
-                        words, but do
-                        <em>not</em> already exist in the English dictionary.
-                        How does it work?{" "}
-                        <Link to="/how-it-works">Click here to see!</Link> If
-                        you want to see it in action, try it out below! ⬇️
+                        Welcome to the Faker Word Maker App! This app uses
+                        machine learning to generate words that look like real
+                        words, but do <em>not</em> already exist in the
+                        dictionary. How does it work?{" "}
+                        <Link to="/how-it-works">Click here to find out!</Link>{" "}
+                        If you want to see it in action, try it out below! ⬇️
                     </Typography>
                 </Grid>
                 <Grid item xs={12}>
                     <Typography variant="h2">See it in action!</Typography>
                     <Word />
                 </Grid>
-                <Grid item xs={12}>
-                </Grid>
+                <Grid item xs={12}></Grid>
             </Grid>
         </Container>
     );
