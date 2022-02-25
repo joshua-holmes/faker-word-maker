@@ -46,7 +46,10 @@ function ForDevelopers() {
                                 <Typography variant="p">
                                     To use the API with 'example' lexicon:{" "}
                                     <Typography variant="p">
-                                        https://word-generator-app.herokuapp.com/random_word/example
+                                        <a href="https://faker-word-maker.jpholmes.com/random_word/example" target="_blank">
+                                            https://faker-word-maker.jpholmes.com/random_word/example
+                                        </a>
+                                        https://faker-word-maker.jpholmes.com/random_word/example
                                     </Typography>
                                 </Typography>
                             </Grid>
@@ -55,7 +58,9 @@ function ForDevelopers() {
                                     To use the API with 'example' lexicon,
                                     forcing the word to be 5 letters long:{" "}
                                     <Typography variant="p">
-                                        https://word-generator-app.herokuapp.com/random_word/example/5
+                                        <a href="https://faker-word-maker.jpholmes.com/random_word/example/5" target="_blank">
+                                            https://faker-word-maker.jpholmes.com/random_word/example/5
+                                        </a>
                                     </Typography>
                                 </Typography>
                             </Grid>
