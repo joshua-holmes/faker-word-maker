@@ -55,7 +55,6 @@ function CommunityLexicons({ lexicons, selectionsState }) {
             )
                 .then((r) => r.json())
                 .then((data) => {
-                    console.log("ADDED FAVE", data);
                     setFaveWords(() =>
                         extendedWords.map((w) => (w.id < 0 ? data : w))
                     );
@@ -85,8 +84,7 @@ function CommunityLexicons({ lexicons, selectionsState }) {
             `/favorite_words/${wordObj.id}`,
             config
         )
-            .then((r) => r.json())
-            .then(() => console.log("DELETED FAVE"))
+            .then(r => r.ok ? null : console.error("FAILED TO DELETE FAVE"))
             .catch((error) => {
                 console.error("Deleting favorite word failed... ==>", error);
                 setFaveWords(() => [...filteredWords, wordObj]);
