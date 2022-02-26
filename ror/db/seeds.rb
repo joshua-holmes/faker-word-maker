@@ -3,11 +3,10 @@ parsed_words = JSON.parse File.read("./python/words.json")
 
 puts "🌱 Destroying seeds..."
 
-Word.destroy_all
-Lexicon.destroy_all
-LexiconWord.destroy_all
 FavoriteWord.destroy_all
-
+LexiconWord.destroy_all
+Lexicon.destroy_all
+Word.destroy_all
 
 
 puts "Creating new seeds..."
@@ -28,12 +27,5 @@ def favorite_word fake_word, lexiconName
 end
 
 create_lexicon "example", parsed_words
-favorite_word "jsofhi", "example"
-favorite_word "dfsdf", "example"
-favorite_word "qwertys", "example"
-favorite_word "asdfzxcv", "example"
-favorite_word "hawegsd", "example"
-favorite_word "dfweeeeeee", "example"
-
 
 puts "✅ Done seeding!"
